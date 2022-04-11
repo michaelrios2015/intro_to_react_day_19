@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id='app'></div>
+    <script>
+        const app = document.querySelector('#app');
+        console.log(app);
+
+        const items = [1, 2];
+
+        const render = () => {
+            const html = `
+            <div>
+                <h2> Count is ${items.length}</h2>
+                <ul>
+                    ${items.map(item => `
+                        <li>
+                            ${item}
+                            </li>
+                            `).join('')
+                }
+                    </ul>
+                    </div>
+            `;
+            app.innerHTML = html;
+        };
+
+        render();
+
+        // this is nifty  
+        const interval = setInterval(() => {
+            items.push(Math.random());
+            render();
+            // console.log(items);
+            if (items.length === 10) {
+                clearInterval(interval);
+            }
+        }, 500)
+
+    </script>
+
+</body>
+
+</html>
