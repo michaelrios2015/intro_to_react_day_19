@@ -4,40 +4,78 @@
     <!-- done differently in the latest version -->
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 </head>
 
 <body>
     <!-- you can see all the beginings of react here -->
     <div id='app'></div>
-    <script>
+    <script type='text/babel'>
         const app = document.querySelector('#app');
         console.log(app);
 
         class App extends React.Component {
+            constructor(){
+                super();
+                this.state = {
+                    items,
+                    message: ''
+                };
+            const interval = setInterval(() => {
+                items.push(Math.random());
+                this.setState({ items });
+                if (items.length === 10) {
+                    clearInterval(interval);
+                    this.setState({ message: 'DONE' });
+                }
+        }, 500)
+
+
+            }
             render() {
-                return React.createElement(
-                    'div',
-                    null,
-                    React.createElement(
-                        'h2',
-                        null,
-                        `Count is ${items.length}`
-                    ),
-                    React.createElement(
-                        'ul',
-                        null,
-                        items.map((item, idx) => React.createElement('li', { key: idx }, item))
-                    )
-                );
+                const { items, message } = this.state
+                
+                return (
+                    <div>
+                        <h2> Count is {items.length} </h2>     
+                        <h3> { message } </h3>
+                        <ul>
+                            {
+                                items.map( (item, idx)=><li key = { idx }>{ item }</li>)
+                            }
+                        </ul>
+                        </div>
+                )
+    
+                // return React.createElement(
+                //     'div',
+                //     null,
+                //     React.createElement(
+                //         'h2',
+                //         null,
+                //         `Count is ${items.length}`
+                //     ),
+                //     React.createElement(
+                //         'h3',
+                //         null,
+                //         message
+                //     ),
+                //     React.createElement(
+                //         'ul',
+                //         null,
+                //         items.map((item, idx) => React.createElement('li', { key: idx }, item))
+                //     )
+                // );
             }
         }
 
         const items = [1, 2];
 
         // so this is the magic that gabs our one html root 
-        // component and attached the react components to it
-        ReactDOM.render(React.createElement(App), app);
+        // // component and attached the react components to it
+        ReactDOM.render(<App/>, app);
+       
 
         /*
         const render = () => {
