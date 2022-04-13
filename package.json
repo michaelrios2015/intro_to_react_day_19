@@ -1,0 +1,29 @@
+{
+  "name": "intro_to_react_day_19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "build:dev": "npm run build -- --mode=development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelrios2015/intro_to_react_day_19.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelrios2015/intro_to_react_day_19/issues"
+  },
+  "homepage": "https://github.com/michaelrios2015/intro_to_react_day_19#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
